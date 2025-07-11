@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Love Me?</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: sans-serif;
+      }
+
+      .container {
+        text-align: center;
+      }
+
+      h2 {
+        margin-top: 100px;
+        margin-left: 80px;
+        font-size: 25px;
+      }
+
+      button {
+        margin-top: 80px;
+        font-size: 1.5rem;
+      }
+
+      #yes {
+        background-color: crimson;
+        padding-inline: 20px;
+        padding-block: 10px;
+        /* font-size: 1rem; */
+        border-radius: 5px;
+        border: none;
+        color: azure;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin-right: 70px;
+      }
+
+      #yes:hover {
+        background-color: rgb(138, 18, 18);
+      }
+
+      #no {
+        background-color: crimson;
+        padding-inline: 20px;
+        padding-block: 10px;
+        /* font-size: 1rem; */
+        border-radius: 5px;
+        border: none;
+        color: azure;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        position: absolute;
+        /* margin-left: 30px; */
+      }
+
+      #no:hover {
+        background-color: rgb(138, 18, 18);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2 id="text">Do You Love Me?</h2>
+      <button id="yes">Yes</button>
+      <button id="no">No</button>
+    </div>
+
+    <script>
+      const yesBtn = document.getElementById("yes");
+      const texth2 = document.getElementById("text");
+      const noBtn = document.getElementById("no");
+
+      yesBtn.addEventListener("click", () => {
+        texth2.innerHTML = "I Love You Too!❤️";
+
+        texth2.style.fontSize = "50px";
+      });
+
+      noBtn.addEventListener("mousemove", (e) => {
+        const rect = noBtn.getBoundingClientRect();
+        const distance = Math.hypot(
+          e.clientX - rect.left + rect.width / 2,
+          e.clientY - rect.top + rect.height / 2
+        );
+
+        if (distance < 100) {
+          const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+          const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+
+          noBtn.style.left = `${x}px`;
+          noBtn.style.top = `${y}px`;
+        }
+      });
+    </script>
+  </body>
+</html>
